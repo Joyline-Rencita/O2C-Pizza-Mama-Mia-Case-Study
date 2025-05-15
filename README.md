@@ -7,4 +7,4 @@
 
 ![Screenshot (1174)](https://github.com/user-attachments/assets/8b2e8be2-644a-4757-ab56-71d5077d6860)
 
-![Screenshot (1177)](https://github.com/user-attachments/assets/47095db3-59b2-4c6e-ba1d-4fcf26c6bf43)
+![Screenshot (1178)](https://github.com/user-attachments/assets/97a94eeb-eb97-47ab-8c72-ca911298aca7)
