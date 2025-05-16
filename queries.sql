@@ -100,3 +100,14 @@ SUM(
     )
     * "Pizza_Case_Table_Pizza_Case"."Costs"
 )
+
+
+11. Time b/w arrival & payment
+
+AVG(
+    CALC_THROUGHPUT(
+        FIRST_OCCURRENCE['Pizza arrives at customer'] TO FIRST_OCCURRENCE['Payment customer'],
+        REMAP_TIMESTAMPS("Pizza_Activity_Table_Pizzeria_Event"."EVENTTIME", MINUTES)
+    )
+)
+
