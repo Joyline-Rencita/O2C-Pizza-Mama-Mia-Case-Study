@@ -75,3 +75,11 @@ SUM(
     )
     * "Pizza_Case_Table_Pizza_Case"."Costs"
 )
+
+-- 9 
+
+PU_SUM(
+    DOMAIN_TABLE("Pizza_Case_Table_Pizza_Case"."Cost Factor"),
+    "Pizza_Case_Table_Pizza_Case"."Costs",
+    "Pizza_Case_Table_Pizza_Case"."Cost Factor" = 'Phone Bill'
+)
