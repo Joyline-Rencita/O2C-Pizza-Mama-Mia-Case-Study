@@ -111,7 +111,7 @@ AVG(
     )
 )
 
-12.  Time b/w arrival & payment
+12.  Time between arrival & payment
 
 AVG(
     CALC_THROUGHPUT(
