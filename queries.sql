@@ -83,3 +83,20 @@ PU_SUM(
     "Pizza_Case_Table_Pizza_Case"."Costs",
     "Pizza_Case_Table_Pizza_Case"."Cost Factor" = 'Phone Bill'
 )
+
+10 Cost of Delay Between Calling Customer and Starting Preparation
+
+SUM(
+    (
+        CALC_THROUGHPUT(
+            FIRST_OCCURRENCE['Call Customer'] TO FIRST_OCCURRENCE['Start preparing pizza'],
+            REMAP_TIMESTAMPS("Pizza_Activity_Table_Pizzeria_Event"."EVENTTIME", MINUTES)
+        )
+        /
+        CALC_THROUGHPUT(
+            CASE_START TO CASE_END,
+            REMAP_TIMESTAMPS("Pizza_Activity_Table_Pizzeria_Event"."EVENTTIME", MINUTES)
+        )
+    )
+    * "Pizza_Case_Table_Pizza_Case"."Costs"
+)
