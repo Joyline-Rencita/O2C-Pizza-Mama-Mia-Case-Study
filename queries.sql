@@ -59,3 +59,19 @@ SELECT
 FROM "Pizza_Case_Table_Pizza_Case"
 WHERE "Pizza_Case_Table_Pizza_Case"."Cost Factor" LIKE 'Delivery Guy%'
 GROUP BY "Pizza_Case_Table_Pizza_Case"."Cost Factor"
+
+
+-- 8 unknown 
+SUM(
+    (
+        CALC_THROUGHPUT(
+            FIRST_OCCURRENCE['Call Customer'] TO FIRST_OCCURRENCE['Start preparing pizza'],
+            REMAP_TIMESTAMPS("Pizza_Activity_Table_Pizzeria_Event"."EVENTTIME", MINUTES)
+        ) / 
+        CALC_THROUGHPUT(
+            CASE_START TO CASE_END,
+            REMAP_TIMESTAMPS("Pizza_Activity_Table_Pizzeria_Event"."EVENTTIME", MINUTES)
+        )
+    )
+    * "Pizza_Case_Table_Pizza_Case"."Costs"
+)
